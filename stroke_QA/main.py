@@ -9,11 +9,15 @@ from datetime import datetime
 app = FastAPI(title="Stroke Prediction API", version="1.0.0")
 
 # Load the trained model
+model = None
+model_error = None
+
 try:
     with open('stroke_QA.pkl', 'rb') as file:
         model = pickle.load(file)
-except FileNotFoundError:
-    raise Exception("Model file 'stroke_QA.pkl' not found")
+except Exception as e:
+    model_error = str(e)
+    print(f"Warning: Model could not be loaded: {model_error}")
 
 # Define the input data structure
 class PatientData(BaseModel):
@@ -97,6 +101,8 @@ def root():
         "service": "Stroke Risk Prediction API",
         "description": "ML-powered system to predict stroke risk based on health data.",
         "status": "running",
+        "model_loaded": model is not None,
+        "model_error": model_error,
         "version": "1.0.0",
         "endpoints": {
             "root": "/",
