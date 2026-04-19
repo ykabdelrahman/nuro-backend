@@ -12,6 +12,12 @@ class ChatRequest(BaseModel):
     messages: list = []
 
 
+@app.get("/")
+async def root():
+    """Root endpoint to verify the API is running"""
+    return {"message": "Chatbot API is running", "status": "online"}
+
+
 @app.post("/chat/stream")
 async def stream_chat_sse(request: ChatRequest):
     """Stream chat responses using Server-Sent Events (testable in Swagger)"""
