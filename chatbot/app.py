@@ -14,8 +14,17 @@ class ChatRequest(BaseModel):
 
 @app.get("/")
 async def root():
-    """Root endpoint to verify the API is running"""
-    return {"message": "Chatbot API is running", "status": "online"}
+    """Detailed root endpoint for Chatbot Service"""
+    return {
+        "service": "StrokeCare-AI Chatbot",
+        "description": "Reliable medical assistant for Stroke early detection and education.",
+        "status": "online",
+        "endpoints": {
+            "root": "/",
+            "streaming_chat": "/chat/stream [POST]"
+        },
+        "docs": "/docs"
+    }
 
 
 @app.post("/chat/stream")

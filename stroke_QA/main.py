@@ -92,8 +92,19 @@ def get_risk_category(probability: float) -> str:
 # API Endpoints
 @app.get("/")
 def root():
-    """Root endpoint"""
-    return {"message": "Stroke Prediction API", "status": "running"}
+    """Detailed root endpoint for Stroke Prediction API"""
+    return {
+        "service": "Stroke Risk Prediction API",
+        "description": "ML-powered system to predict stroke risk based on health data.",
+        "status": "running",
+        "version": "1.0.0",
+        "endpoints": {
+            "root": "/",
+            "health": "/health [GET]",
+            "predict": "/predict [POST]"
+        },
+        "docs": "/docs"
+    }
 
 @app.get("/health")
 def health_check():
