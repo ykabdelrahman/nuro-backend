@@ -1,0 +1,23 @@
+services:
+  chatbot:
+    build:
+      context: ./chatbot
+    ports:
+      - "8001:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    restart: always
+
+  stroke-qa:
+    build:
+      context: ./stroke_QA
+    ports:
+      - "8002:8000"
+    restart: always
+
+  stroke-image:
+    build:
+      context: ./stroke_image
+    ports:
+      - "8003:8000"
+    restart: always
