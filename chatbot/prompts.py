@@ -48,7 +48,7 @@ Do NOT add new medical information.
 
 """
 
-def formmated_history(messages):
+def formatted_history(messages):
     chat_history_str = ""
     if messages:
         for msg in messages:
@@ -59,7 +59,7 @@ def formmated_history(messages):
     return chat_history_str
 
 def query_rewrite_extend(user_input: str, chat_history: list) -> str:
-    chat_history_str = formmated_history(chat_history)
+    chat_history_str = formatted_history(chat_history)
 
     prompt = f"""
     User Query: {user_input}
@@ -75,7 +75,6 @@ def system_prompt_extend(user_input: str, chat_history: str) -> str:
     """
     Extend the system prompt with user input, chat history, and content.
     """
-    chat_history = formmated_history(chat_history)
     prompt = f"""
 User Query: {user_input}
 

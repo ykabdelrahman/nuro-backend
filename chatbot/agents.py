@@ -36,16 +36,16 @@ async def response_agent(state: State) -> str:
     rewritten_query = state.get('rewritten_query')
     messages = state.get('messages', [])
 
-    chat_history_str = formmated_history(messages)
+    chat_history_str = formatted_history(messages)
 
     messages = [
         SystemMessage(content=SYSTEM_PROMPT),
         HumanMessage(content=system_prompt_extend(rewritten_query, chat_history_str))
     ]
     full_response = ""
-    async for chunck in llm.astream(messages):
-        if hasattr(chunck, 'content') and chunck.content:
-            full_response += chunck.content
+    async for chunk in llm.astream(messages):
+        if hasattr(chunk, 'content') and chunk.content:
+            full_response += chunk.content
     return {
         "response": full_response.strip()
     }
@@ -54,7 +54,7 @@ async def streaming_response_agent(state: State):
     rewritten_query = state.get('rewritten_query')
     messages = state.get('messages', [])
 
-    chat_history_str = formmated_history(messages)
+    chat_history_str = formatted_history(messages)
 
     messages = [
         SystemMessage(content=SYSTEM_PROMPT),
