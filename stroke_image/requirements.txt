@@ -3,5 +3,6 @@ uvicorn
 pydantic
 numpy
 tensorflow
+keras==3.14.0
 pillow
 python-multipart
