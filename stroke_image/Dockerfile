@@ -11,6 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN wget -O stroke_image_v2.keras \
     "https://github.com/ykabdelrahman/nuro-backend/releases/download/v1.0-models/stroke_image_v2.keras.zip"
 
+RUN echo "cache-bust-v3"
 COPY . .
 
 EXPOSE 8000
