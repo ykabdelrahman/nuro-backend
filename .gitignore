@@ -8,3 +8,4 @@ env/
 venv/
 ENV/
 *.log
+stroke_image/stroke_image_v2.keras

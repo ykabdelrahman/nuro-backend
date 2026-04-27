@@ -12,7 +12,7 @@ Deployed at [Dokploy](https://nuro-chatbot.baselembaby.cloud) on VPS.
 | **Stroke Image** | `https://nuro-image.baselembaby.cloud` | Image-based Detection |
 
 ---
-
+ss
 ## 🏗️ Architecture
 The system is orchestrated using **Docker Compose** with three independent microservices:
 1.  **Chatbot**: FastAPI + LangGraph + LangChain.
