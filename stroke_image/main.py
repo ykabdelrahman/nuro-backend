@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile  # v2
 from fastapi.responses import JSONResponse
 import numpy as np
 from PIL import Image
